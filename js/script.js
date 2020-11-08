@@ -59,3 +59,38 @@ headerButton.addEventListener('click', function(event){
     imgButton.style.backgroundColor = 'green';
     
 });
+
+
+
+//Ändra text på minst ett element
+
+
+//select  html- document
+let htmlElement = document.querySelector('html');
+//select all h2- elements 
+let h2Element = document.querySelectorAll('h2');
+console.log(h2Element);
+//array with new names
+let arr = ['first hoodie', 'second hoodie', 'third hoodie'];
+
+//Replace the text of the h2 elements with the text from the array that I created when we pressed "i" or "I" and changed the CSS style in the document js
+htmlElement.addEventListener('keydown', function (event){
+    if (event.key === 'i' || event.key === 'I'){
+        for (let i=0; i<arr.length; i++){
+            h2Element[i].innerText = arr[i];
+        }
+    }
+    if (event.key == 'i'){
+        for (let i=0; i<arr.length; i++){
+            h2Element[i].style.color = 'violet';
+        }
+    }
+    if (event.key == 'I'){
+        for (let i=0; i<arr.length; i++){
+            h2Element[i].style.color = 'olive';
+            h2Element[i].innerText = h2Element[i].innerText.toUpperCase();
+            h2Element[i].style.display = 'flex';
+            h2Element[i].style.justifyContent = 'center';
+        }
+    }
+});
