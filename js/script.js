@@ -175,3 +175,32 @@ listButton.addEventListener('click', function(event){
     ulElement.style.flexDirection = 'column';
 });
 
+
+
+
+//En knapp som återställer allt till originalutseendet
+
+
+//create a button and style it
+let deleteButton = document.createElement('button');
+deleteButton.setAttribute('class','delete');
+let imgHeader = document.querySelector('header .logo');
+imgHeader.insertAdjacentElement('afterend',deleteButton);
+deleteButton.innerText ='return to original';
+deleteButton.style.marginLeft = '1rem'
+deleteButton.style.padding = '.3rem .5rem';
+deleteButton.style.backgroundColor = 'black';
+deleteButton.style.color = '#ffffff';
+deleteButton.style.display = 'none';
+
+//when you press the Delete button on the keyboard, the button appears on the screen
+htmlElement.addEventListener('keydown', function(event){
+    if (event.key === 'Delete'){
+            deleteButton.style.display = 'flex';
+    }
+});
+deleteButton.addEventListener('click', function(){
+    location.reload();
+});
+
+
