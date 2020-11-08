@@ -94,3 +94,19 @@ htmlElement.addEventListener('keydown', function (event){
         }
     }
 });
+
+
+
+
+
+//Ändra färg på minst en knapp
+
+
+//Using a loop, I changed the background color of the three buttons that I had selected from the original HTML document. Colors change when you move the mouse on the button
+for (let i = 0; i<allButton.length;i++){
+    allButton[i].addEventListener('mousemove', function(event){
+        let hue = event.x/5 + 100;
+        let saturation = event.y/6;
+        allButton[i].style.backgroundColor = `hsl(${hue}, ${saturation}%, 70%)`;
+       });
+}
