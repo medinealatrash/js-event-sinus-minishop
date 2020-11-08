@@ -110,3 +110,19 @@ for (let i = 0; i<allButton.length;i++){
         allButton[i].style.backgroundColor = `hsl(${hue}, ${saturation}%, 70%)`;
        });
 }
+
+
+
+//Ta bort minst 1 element 
+
+//select all buttons, including those that were created by me and save the value to the same variable
+allButton = document.querySelectorAll('button');
+////when you double-click on the document, a function is started  and check for the presence of a buttons witch containing the text I need and removes those buttons
+//select all buttons, including those that were 
+htmlElement.addEventListener('dblclick', function(event){
+    for (let i = 0; i<allButton.length;i++){
+        if (allButton[i].innerText.includes('change')){
+            allButton[i].style.display = 'none';
+        }
+    }
+});
