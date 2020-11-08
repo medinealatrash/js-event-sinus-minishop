@@ -100,9 +100,10 @@ htmlElement.addEventListener('keydown', function (event){
 
 
 //Ändra färg på minst en knapp
+//selected all the element -button.
+allButton = document.querySelectorAll('button');
 
-
-//Using a loop, I changed the background color of the three buttons that I had selected from the original HTML document. Colors change when you move the mouse on the button
+//Using a loop, I changed the background color of button. Colors change when you move the mouse on the button
 for (let i = 0; i<allButton.length;i++){
     allButton[i].addEventListener('mousemove', function(event){
         let hue = event.x/5 + 100;
@@ -126,3 +127,51 @@ htmlElement.addEventListener('dblclick', function(event){
         }
     }
 });
+
+
+
+
+
+
+//Lägg till en lista var som helst i DOMen 
+//Listan ska innehålla flera li element
+//Varje li element ska ha en synlig border. (Valfritt utseende)
+
+
+//selected the element section into the footer.
+let footerSection = document.querySelector('footer section');
+//using the insertAdjacentHTML , I inserted the list I needed.
+footerSection.insertAdjacentHTML('beforeend',
+`<article> <ul>
+<li>first point</li>
+<li>second point</li>
+<li>third point</li>
+</ul></article>`);
+//selected the ul element from the added test and added padding.
+let ulElement = document.querySelector('ul');
+ulElement.style.padding = '1rem';
+ulElement.style.display = 'none';
+//from the list I added, I selected all the li -elements and changed the style (added a border, removed a marker)
+let liElement = document.querySelectorAll('li');
+for (let i =0; i<liElement.length; i++){
+    liElement[i].style.listStyle = 'none';
+    liElement[i].style.border = 'solid';
+    liElement[i].style.height = '1.2rem';
+    liElement[i].style.marginBottom = '1rem';
+    liElement[i].style.borderColor = `hsl(100, 70%, 70%)`;
+}
+let listButton = document.createElement('button');
+listButton.setAttribute('class','my-list');
+listButton.innerText = 'show list';
+footerSection.insertAdjacentElement('beforeend',listButton);
+//listButton.style.marginLeft = '1rem';
+listButton.style.margin = 'auto';
+listButton.style.height = '3rem';
+listButton.style.width = '6rem';
+listButton.style.padding = '.3rem .5rem';
+listButton.addEventListener('click', function(event){
+    listButton.style.display = 'none';
+    ulElement.style.display = 'flex';
+    ulElement.style.flexDirection = 'column';
+});
+
