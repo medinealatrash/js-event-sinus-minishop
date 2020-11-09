@@ -100,6 +100,8 @@ htmlElement.addEventListener('keydown', function (event){
 
 
 //Ändra färg på minst en knapp
+
+
 //selected all the element -button.
 allButton = document.querySelectorAll('button');
 
@@ -199,8 +201,51 @@ htmlElement.addEventListener('keydown', function(event){
             deleteButton.style.display = 'flex';
     }
 });
-deleteButton.addEventListener('click', function(){
-    location.reload();
-});
 
+deleteButton.addEventListener('click', function(){
+
+    let img1Element = document.querySelector('.art-1  img');
+    let img2Element = document.querySelector('.art-2  img');
+    let img3Element = document.querySelector('.art-3  img');
+    img1Element.src= 'img/hoodie-ash.png';
+    img2Element.src= 'img/hoodie-fire.png';
+    img3Element.src= 'img/hoodie-ocean.png'; 
+
+
+    for (let i = 0; i<allButton.length;i++){
+        allButton[i].style.background = `#222`;
+    }
+     let pElement = document.querySelectorAll('p');
+     console.log (pElement);
+    for (let i = 0; i<pElement.length; i++ ){
+        pElement[i].style.background = 'none';
+    } 
+    let aElement = document.querySelectorAll(' a');
+    for (let i = 0; i<aElement.length; i++ ){
+        aElement[i].style.background = 'none';
+    }
+   
+    headerButton.style.backgroundColor = 'red';
+    imgButton.style.backgroundColor = 'blue';
+
+    
+    for (let i=0; i<h2Element.length; i++){
+        let retunH2 = 'Sinus Hoodie';
+        h2Element[i].innerText = retunH2;
+        h2Element[i].style.color = 'black';
+        h2Element[i].style.display = 'flex';
+        h2Element[i].style.justifyContent = 'flex-start';
+    }
+
+    for (let i = 0; i<allButton.length;i++){
+        if (allButton[i].innerText.includes('change')){
+            allButton[i].style.display = 'block';
+        }
+    }
+    listButton.style.display = 'block';
+    ulElement.style.display = 'none';
+    deleteButton.style.display = 'none';
+    
+
+});
 
